@@ -1,0 +1,16 @@
+
+@import '../shared/colors.scss';
+
+
+::placeholder {
+  color: $color-white;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: $color-button !important;
+}
+
+input, select, select:after, .btn-secondary, .btn-secondary:hover, .-secondary:active, .btn-secondary:visited {
+  background-color: $color-input !important;
+  color: $color-white;
+}

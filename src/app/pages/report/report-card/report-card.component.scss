@@ -1,0 +1,34 @@
+@import "../shared/colors.scss";
+
+.empty-card {
+  margin-top: 5%;
+}
+
+.main-card {
+  background-color: $color-main-card;
+  height: 100%;
+  width: 97%;
+  border-radius: 10px;
+}
+
+.second-card {
+  background-color: $color-main-card;
+  height: 53px;
+  width: 97%;
+  top: 10px;
+  border-radius: 10px;
+}
+
+
+.table {
+  background-color: white;
+  width: 97%;
+  margin: 0 1%;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: $color-main-card; /* Choose your own color here */
+}
+
+

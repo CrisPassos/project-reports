@@ -1,0 +1,10 @@
+<app-report-header
+  [allProjects$]="allProjects$"
+  [allGateways$]="allGateways$"
+  (model)="onModelChange($event)"
+></app-report-header>
+<app-report-card
+  [model]="model"
+  [allProjects$]="allProjects$"
+  [allGateways$]="allGateways$"
+></app-report-card>

@@ -1,0 +1,96 @@
+<div *ngIf="!model" class="text-center empty-card">
+  <img src="../../../../assets/images/Group 158.svg" alt="empty"/>
+  <br>
+  <img src="../../../../assets/images/Group 273.svg" alt="empty"/>
+</div>
+
+<div class="card py-3 main-card" *ngIf="model">
+  <div *ngIf="model?.project && model?.gateway && !model?.all">
+    <p class="px-3">
+      <strong>{{ model?.project?.name }} | {{model?.gateway?.name}}</strong>
+    </p>
+
+    <table class="table table-striped px-3">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Transaction ID</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of model?.report">
+          <td>{{item?.created}}</td>
+          <td>{{item?.paymentId}}</td>
+          <td>{{item?.amount}} USD</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="accordion px-3" id="accordionExample" *ngIf="model?.all">
+    <p class="px-3">
+      <strong> All Projects | All Gateways</strong>
+    </p>
+
+    <div class="accordion-item" *ngFor="let item of (fullReport$ | async); let i = index">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          <label class="float-end">  {{item.name}} | <strong>Total: 123 </strong></label>
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample"
+      >
+        <div class="accordion-body">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Gateway</th>
+                <th scope="col">Transaction ID</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="card py-3 second-card" *ngIf="model?.all">
+  <p class="px-3"><strong>Total:</strong></p>
+</div>
+
+
